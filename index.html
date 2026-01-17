@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新春倒计时</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      修改目标时间：在 app.js 顶部的 TARGET 常量中填写 ISO 字符串。
+      打开设置面板：点击右上角的印章按钮。
+    -->
+    <canvas id="celebration-canvas" aria-hidden="true"></canvas>
+    <div class="jiangnan" aria-hidden="true"></div>
+
+    <main class="page" role="main">
+      <header class="hero">
+        <div class="hero-top">
+          <div class="seal" aria-hidden="true">福</div>
+          <button class="icon-button" id="settings-toggle" aria-label="打开设置面板">
+            <span class="gear" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="kicker">新中式 · 国潮 · 团圆时刻</p>
+        <h1>新春倒计时</h1>
+        <p class="subtitle" id="subtitle">灯火可亲，年味将至</p>
+      </header>
+
+      <section class="countdown" aria-live="polite">
+        <div class="unit">
+          <div class="value" data-unit="days">
+            <span class="current">--</span>
+            <span class="next">--</span>
+          </div>
+          <small>天</small>
+        </div>
+        <div class="unit">
+          <div class="value" data-unit="hours">
+            <span class="current">--</span>
+            <span class="next">--</span>
+          </div>
+          <small>时</small>
+        </div>
+        <div class="unit">
+          <div class="value" data-unit="minutes">
+            <span class="current">--</span>
+            <span class="next">--</span>
+          </div>
+          <small>分</small>
+        </div>
+        <div class="unit">
+          <div class="value" data-unit="seconds">
+            <span class="current">--</span>
+            <span class="next">--</span>
+          </div>
+          <small>秒</small>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-card">
+          <h2>目标日期</h2>
+          <p id="target-display">--</p>
+        </div>
+        <div class="panel-card">
+          <h2>时区</h2>
+          <p id="timezone-display">--</p>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button class="primary" id="share-button">分享倒计时</button>
+        <button class="ghost" id="reset-button" hidden>重新设置目标时间</button>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-about">
+          <h3>关于网站</h3>
+          <p>新中式国潮风格倒计时页，用于展示春节临近的仪式感与信息可视化。</p>
+        </div>
+        <p>以红为礼，以金为愿。岁岁团圆，常与君伴。</p>
+      </footer>
+    </main>
+
+    <aside class="settings" id="settings" aria-hidden="true">
+      <div class="settings-card" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="settings-header">
+          <h2 id="settings-title">设置目标时间</h2>
+          <button class="icon-button" id="settings-close" aria-label="关闭设置面板">
+            <span class="close" aria-hidden="true"></span>
+          </button>
+        </div>
+        <label class="field">
+          <span>目标日期与时间</span>
+          <input type="datetime-local" id="target-input" />
+        </label>
+        <label class="field">
+          <span>显示时区</span>
+          <select id="timezone-input">
+            <option value="Asia/Shanghai">Asia/Shanghai（北京时间）</option>
+            <option value="local">本地时区</option>
+          </select>
+        </label>
+        <button class="primary" id="save-button">保存设置</button>
+      </div>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
